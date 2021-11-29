@@ -56,6 +56,9 @@ function HomeStack({ navigation }) {
                 <Stack.Screen
                     name="DetailsScreen"
                     component={Details}
+                    options={{
+                        title: 'Track Shipment'
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

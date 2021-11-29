@@ -4,7 +4,7 @@ const windowHeight = Dimensions.get('window').height;
 import Icon from "react-native-vector-icons/Ionicons"
 import StepIndicator from "react-native-step-indicator"
 
-export default class newFile extends React.Component {
+export default class Details extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,29 +17,107 @@ export default class newFile extends React.Component {
             estimatedHours: '2 - 3 Hours',
             RiderDetails: [
                 {
-                    image: require("../assets/tShirt.png"),
+                    status: 'Parcel picked up',
+                    location: 'Kota Kinabalu',
                     username: "Rider Name",
-                    date: "Saturday, 10 September 2021",
+                    date: "15 November",
+                    time: '9:30a.m',
                     route: "ST 7 R",
-                    details: "",
+                    details: "To Airport",
+                    isDone: true,
                 },
                 {
-                    image: require("../assets/tShirt.png"),
-                    username: "Cloud Runner",
-                    date: "Saturday, 10 September 2021",
-                    route: "Kota Kinabalu - Tawau",
-                    details: "",
+                    status: 'Parcel dropped off',
+                    location: 'Kota Kinabalu',
+                    username: "Rider Name",
+                    date: "15 November",
+                    time: '9:30a.m',
+                    route: "ST 7 R",
+                    details: "To Airport",
+                    isDone: true,
                 },
                 {
-                    image: require("../assets/tShirt.png"),
+                    status: 'Parcel picked up',
+                    location: 'Kota Kinabalu',
                     username: "Rider Name",
-                    date: "Saturday, 10 September 2021",
+                    date: "15 November",
+                    time: '9:30a.m',
                     route: "ST 7 R",
-                    details: "",
+                    details: "To Airport",
+                    isDone: true,
                 },
+                {
+                    status: 'Parcel dropped off',
+                    location: 'Kota Kinabalu',
+                    username: "Rider Name",
+                    date: "15 November",
+                    time: '9:30a.m',
+                    route: "ST 7 R",
+                    details: "To Airport",
+                    isDone: true,
+                },
+                {
+                    status: 'Parcel picked up',
+                    location: 'Kota Kinabalu',
+                    username: "Rider Name",
+                    date: "15 November",
+                    time: '9:30a.m',
+                    route: "ST 7 R",
+                    details: "To Airport",
+                    isDone: false,
+                },
+
+
 
             ]
         }
+    }
+    checkDone(isDone, username, route, details) {
+        if (!isDone) {
+            return (
+                <View style={{ flex: 1, padding: 10, backgroundColor: '#FAAF40', borderRadius: 10, flexDirection: 'row' }}>
+                    <View style={{ flex: 1 }}>
+                        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 10 }}>{username}</Text>
+                        <Text style={{ color: 'white', fontSize: 10 }}>{route}</Text>
+                    </View>
+                    <View style={{ flex: 4, justifyContent: 'center', alignItems: 'center' }}>
+
+                        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 10 }}>{details}</Text>
+                        <View style={{ width: '85%', borderBottomColor: 'white', borderBottomWidth: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <View style={{ backgroundColor: 'white', width: 10, height: 10, borderRadius: 5, position: 'absolute', bottom: -5 }}>
+
+                            </View>
+                            <View style={{ backgroundColor: 'white', width: 10, height: 10, borderRadius: 5, position: 'absolute', bottom: -5, right: 0 }}>
+
+                            </View>
+                        </View>
+                    </View>
+                </View>
+            )
+        }
+        else {
+            return (
+                <View style={{ flex: 1, padding: 10, backgroundColor: '#A9A9A9', borderRadius: 10, flexDirection: 'row' }}>
+                    <View style={{ flex: 1 }}>
+                        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 10 }}>{username}</Text>
+                        <Text style={{ color: 'white', fontSize: 10 }}>{route}</Text>
+                    </View>
+                    <View style={{ flex: 4, justifyContent: 'center', alignItems: 'center' }}>
+
+                        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 10 }}>{details}</Text>
+                        <View style={{ width: '85%', borderBottomColor: 'white', borderBottomWidth: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <View style={{ backgroundColor: 'white', width: 10, height: 10, borderRadius: 5, position: 'absolute', bottom: -5 }}>
+
+                            </View>
+                            <View style={{ backgroundColor: 'white', width: 10, height: 10, borderRadius: 5, position: 'absolute', bottom: -5, right: 0 }}>
+
+                            </View>
+                        </View>
+                    </View>
+                </View>
+            )
+        }
+
     }
     render() {
 
@@ -63,56 +141,50 @@ export default class newFile extends React.Component {
                             <Text style={styles.detailsText}>{this.state.address}</Text>
                         </View>
                     </View>
-                    <View style={{ flex: 3, flexDirection: 'row', justifyContent: 'center', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ backgroundColor: '#FAAF40', width: '30%', height: '60%', justifyContent: 'center', alignItems: 'center', marginLeft: 25, borderRadius: 5 }}>
-                            <Text style={{ color: 'white', fontSize: 10, textAlign: 'center' }}>Request Cancel Order</Text>
+
+                    <View style={{ flex: 2.5, flexDirection: 'row', justifyContent: 'space-around', width: '95%', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ backgroundColor: '#FAAF40', width: '30%', height: '60%', justifyContent: 'center', alignItems: 'center', borderRadius: 5 }}>
+                            <Text style={{ color: 'white', fontSize: 10, textAlign: 'center', fontFamily: 'SourceCodePro-SemiBold' }}>Request Order Cancellation</Text>
                         </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={styles.progressDetailsContainer}>
-                    <StepIndicator
-                        customStyles={customStyles}
-                        currentPosition={this.state.currentPosition}
-                        labels={labels}
-                        stepCount={4}
-                        direction={'vertical'}
-                    />
-                </View>
-                <View style={styles.arrivalDetailsContainer}>
-                    <View style={{ flex: 1, width: '100%', borderRadius: 40, borderWidth: 1, flexDirection: 'row' }}>
-                        <View style={{flex: 1, height: '100%', justifyContent: 'center', alignItems: 'flex-end'}}>
-                            <Icon name="time-outline" size={40} color="black"/>
-                        </View>
-                        <View style={{flex: 3, height: '100%', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 20}}>
-                            <Text style={{color: 'black', fontSize: 19, textAlign:'left'}}>Arriving in {this.state.estimatedHours}</Text>
-                            <Text style={{color: 'grey', fontSize: 11, textAlign:'left'}}>Estimated Time - {this.state.estimatedTime}</Text>
-                        </View>
-                        <View style={{flex: 1.5, height: '100%', justifyContent: 'center', alignItems: 'center', paddingRight: 10,}}>
-                            <TouchableOpacity style={{backgroundColor: '#FAAF40', justifyContent: 'center', alignItems: 'center', width:'90%', height: '30%', borderRadius: 5}}>
-                                <Text style={{fontWeight: 'bold', color: 'white'}}>Live</Text>
+                        <View style={{ backgroundColor: '#FAAF40', width: '65%', height: '60%', justifyContent: 'space-evenly', alignItems: 'center', borderRadius: 5, flexDirection: 'row' }}>
+                            <Icon
+                                name="time-outline"
+                                color="white"
+                                size={20}
+                            />
+                            <Text style={{ color: 'white', fontSize: 10, textAlign: 'center', fontFamily: 'SourceCodePro-SemiBold' }}>Arriving in 5-7 Hours</Text>
+                            <TouchableOpacity style={{ backgroundColor: 'white', padding: 5, borderRadius: 20, }}>
+                                <Text style={{ color: '#FAAF40', fontSize: 10, textAlign: 'center', fontFamily: 'SourceCodePro-SemiBold' }}>Live</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
+                    <View style={{ flex: 1, width: '90%' }}>
+                        <Text style={{ color: 'black', fontSize: 15, fontFamily: 'SourceCodePro-SemiBold' }}>Tracking History</Text>
+                    </View>
+                </View>
+                <View style={styles.arrivalDetailsContainer}>
                     <View style={{ flex: 2, width: '90%' }}>
                         <FlatList style={{ flex: 1 }}
                             data={this.state.RiderDetails}
                             ItemSeparatorComponent={this.FlatListItemSeparator}
                             renderItem={({ item }) =>
                                 <View style={styles.listItems}>
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                        <View style={{ backgroundColor: '#C4C4C4', width: "70%", height: '90%', justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: "#C4C4C4", borderRadius: 60 }}>
-                                            <Image
-
-                                                resizeMode="contain"
-                                            />
+                                    <View style={{ flex: 1, padding: 10, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                                        <View>
+                                            <Text style={{ color: 'black', fontFamily: 'SourceCodePro-SemiBold', fontSize: 10 }}>{item.status}</Text>
+                                            <Text style={{ color: 'grey', fontFamily: 'SourceCodePro-SemiBold', fontSize: 10 }}>{item.location}</Text>
+                                        </View>
+                                        <View>
+                                            {/* nothing on the top one, date on the bottom one   */}
+                                            <Text style={{ color: 'black', fontWeight: 'bold' }}></Text>
+                                            <Text style={{ color: 'grey', fontFamily: 'SourceCodePro', fontSize: 10 }}>{item.date} {item.time}</Text>
                                         </View>
 
                                     </View>
-                                    <View style={{ flex: 3, padding: 10 }}>
-                                        <Text style={{ color: 'black', fontWeight: 'bold' }}>{item.username}</Text>
-                                        <Text style={{ color: 'grey' }}>{item.route}</Text>
-                                    </View>
-                                    
+                                    {this.checkDone(item.isDone, item.username, item.route, item.details)}
+
+
+
 
                                 </View>
                             }
@@ -134,7 +206,7 @@ const styles = StyleSheet.create({
     orderDetailsContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
+        flex: 1.5,
         width: '100%',
     },
     imageContainer: {
@@ -150,10 +222,10 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     detailsText: {
-        fontWeight: 'bold',
         color: 'black',
         textAlign: 'left',
-        fontSize: 12
+        fontSize: 12,
+        fontFamily: 'SourceCodePro-SemiBold'
     },
     progressDetailsContainer: {
         justifyContent: 'center',
@@ -166,17 +238,15 @@ const styles = StyleSheet.create({
     arrivalDetailsContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1.5,
+        flex: 2.5,
         width: '100%',
+        paddingBottom: 10,
 
     },
     listItems: {
-        padding: 5,
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        borderBottomColor: 'white',
-        borderBottomWidth: 1,
+        justifyContent: 'center',
+        marginTop: 5,
     },
 })
 
