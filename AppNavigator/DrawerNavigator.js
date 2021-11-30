@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Dimensions, TouchableOpacit, Button } from 'rea
 import { NavigationContainer } from "@react-navigation/native"
 import HomeScreen from "../Screens/HomeScreen"
 import Details from "../Screens/Details";
+import ContactUs from "../Screens/ContactUs";
 import { createDrawerNavigator, DrawerItem, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { DrawerContent } from "./DrawerContent";
@@ -31,10 +32,10 @@ function HomeStack({ navigation }) {
                                 name="bars"
                                 color="black"
                                 size={30}
-                                onPress={() => { navigation.openDrawer() }} 
-                                style={{width: 50, height: 35,justifyContent: 'center', alignItems: 'center'}}
-                                
-                                />
+                                onPress={() => { navigation.openDrawer() }}
+                                style={{ width: 50, height: 35, justifyContent: 'center', alignItems: 'center' }}
+
+                            />
 
                         )
                     }}
@@ -42,16 +43,16 @@ function HomeStack({ navigation }) {
                 <Stack.Screen
                     name="MainDrawerNavigator"
                     component={DrawerNavigator}
-                    // options={{
-                    //     headerLeft: () => (
-                    //         <Icon
-                    //             name="bars"
-                    //             color="black"
-                    //             size={25}
-                    //             onPress={() => { navigation.openDrawer() }} />
+                // options={{
+                //     headerLeft: () => (
+                //         <Icon
+                //             name="bars"
+                //             color="black"
+                //             size={25}
+                //             onPress={() => { navigation.openDrawer() }} />
 
-                    //     )
-                    // }}
+                //     )
+                // }}
                 />
                 <Stack.Screen
                     name="DetailsScreen"
@@ -60,6 +61,29 @@ function HomeStack({ navigation }) {
                         title: 'Track Shipment'
                     }}
                 />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
+function ContactScreen() {
+    return (
+        <NavigationContainer independent="true">
+            <Stack.Navigator
+                initialRouteName="Delivered"
+                screenOptions={{
+                    headerShown: true,
+                    headerTitleAlign: 'center',
+                }}
+
+            >
+                <Stack.Screen
+                    name="ContactUs"
+                    component={ContactUs}
+                    options={{
+                        title: "Contact Us"
+                    }}
+                />
+
             </Stack.Navigator>
         </NavigationContainer>
     )
@@ -79,6 +103,7 @@ function DrawerNavigator() {
 
             >
                 <Drawer.Screen name="HomeStack" component={HomeStack} />
+                <Drawer.Screen name="ContactUs" component={ContactUs} />
 
             </Drawer.Navigator>
         </NavigationContainer>

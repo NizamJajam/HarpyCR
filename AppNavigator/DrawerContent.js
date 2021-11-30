@@ -40,7 +40,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Cloud Runner"
-                            onPress={() => {  }}
+                            onPress={() => { }}
 
                         />
                         <Drawer.Item
@@ -77,18 +77,6 @@ export function DrawerContent(props) {
 
                         />
                         <Drawer.Item
-                            //empty to create gap lmao
-                            icon={({ color, size }) => (
-                                <Icon
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
-                            label=""
-
-                        />
-
-                        <Drawer.Item
                             icon={({ color, size }) => (
                                 <Icon
                                     color={color}
@@ -121,7 +109,29 @@ export function DrawerContent(props) {
                             onPress={() => { }}
 
                         />
+                        <Drawer.Item
+                            icon={({ color, size }) => (
+                                <Icon
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Contact Us"
+                            onPress={() => { props.navigation.navigate("ContactUs") }}
+                        />
 
+                    </Drawer.Section>
+                    <Drawer.Section style={styles.bottomDrawerSection}>
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Sign Out"
+                            onPress={() => { }}
+                        />
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
@@ -140,7 +150,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginTop: 3,
-        fontFamily:'SourceCodePro-SemiBold'
+        fontFamily: 'SourceCodePro-SemiBold'
     },
     caption: {
         fontSize: 14,
