@@ -43,16 +43,6 @@ function HomeStack({ navigation }) {
                 <Stack.Screen
                     name="MainDrawerNavigator"
                     component={DrawerNavigator}
-                // options={{
-                //     headerLeft: () => (
-                //         <Icon
-                //             name="bars"
-                //             color="black"
-                //             size={25}
-                //             onPress={() => { navigation.openDrawer() }} />
-
-                //     )
-                // }}
                 />
                 <Stack.Screen
                     name="DetailsScreen"
@@ -65,30 +55,6 @@ function HomeStack({ navigation }) {
         </NavigationContainer>
     )
 }
-function ContactScreen() {
-    return (
-        <NavigationContainer independent="true">
-            <Stack.Navigator
-                initialRouteName="Delivered"
-                screenOptions={{
-                    headerShown: true,
-                    headerTitleAlign: 'center',
-                }}
-
-            >
-                <Stack.Screen
-                    name="ContactUs"
-                    component={ContactUs}
-                    options={{
-                        title: "Contact Us"
-                    }}
-                />
-
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
-}
-
 
 function DrawerNavigator() {
     return (
